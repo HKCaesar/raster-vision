@@ -20,7 +20,7 @@
     "batch_size": 8,
     "dataset_name": "planet_kaggle",
     "epochs": 30,
-    "generator_name": "tif",
+    "generator_name": "tiff",
     "lr_schedule": [
         [
             0,
