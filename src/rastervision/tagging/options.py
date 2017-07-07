@@ -9,3 +9,5 @@ class TaggingOptions(Options):
         self.use_pretraining = options.get('use_pretraining', False)
         self.target_size = None
         self.active_tags_prob = options.get('active_tags_prob')
+        self.seed = options.get('seed')
+        self.val_ind = options.get('val_ind')

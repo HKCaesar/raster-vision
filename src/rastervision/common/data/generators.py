@@ -71,10 +71,20 @@ class FileGenerator(Generator):
         self.cross_validation = options.cross_validation
 
         if self.train_ratio is not None:
-            nb_train_inds = \
-                int(round(self.train_ratio * len(self.dev_file_inds)))
-            self.train_file_inds = self.dev_file_inds[0:nb_train_inds]
-            self.validation_file_inds = self.dev_file_inds[nb_train_inds:]
+            if self.val_ind is not None:
+                val_size = int(
+                    round((1.0 - self.train_ratio) * len(self.dev_file_inds)))
+                val_start = val_size * self.val_ind
+                val_end = val_size * (self.val_ind + 1)
+                self.train_file_inds = self.dev_file_inds[:val_start] + \
+                    self.dev_file_inds[val_end:]
+                self.validation_file_inds = self.dev_file_inds[val_start:
+                                                               val_end]
+            else:
+                nb_train_inds = \
+                    int(round(self.train_ratio * len(self.dev_file_inds)))
+                self.train_file_inds = self.dev_file_inds[0:nb_train_inds]
+                self.validation_file_inds = self.dev_file_inds[nb_train_inds:]
 
         if self.cross_validation is not None:
             self.process_cross_validation()

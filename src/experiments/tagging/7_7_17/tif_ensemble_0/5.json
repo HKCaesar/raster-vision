@@ -20,7 +20,7 @@
     "batch_size": 8,
     "dataset_name": "planet_kaggle",
     "epochs": 30,
-    "generator_name": "jpg",
+    "generator_name": "tif",
     "lr_schedule": [
         [
             0,
@@ -40,6 +40,7 @@
     "optimizer": "adam",
     "problem_type": "tagging",
     "run_name": "tagging/7_7_17/tif_ensemble_0/avg",
+    "seed": 0,
     "steps_per_epoch": 2400,
     "train_ratio": 0.8,
     "use_pretraining": true,

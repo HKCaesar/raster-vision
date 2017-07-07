@@ -1,6 +1,7 @@
 from os.path import join, basename, splitext
 import csv
 import glob
+from random import shuffle
 
 import numpy as np
 import matplotlib as mpl
@@ -252,6 +253,9 @@ class PlanetKaggleFileGenerator(FileGenerator):
     def generate_file_inds(self, path):
         paths = sorted(
             glob.glob(join(path, '*.{}'.format(self.file_extension))))
+
+        if self.seed is not None:
+            shuffle(paths, lambda: self.seed)
 
         file_inds = []
         for path in paths:
