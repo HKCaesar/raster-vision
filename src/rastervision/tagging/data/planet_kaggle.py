@@ -222,7 +222,8 @@ class PlanetKaggleFileGenerator(FileGenerator):
         self.dev_path = join(self.dataset_path, self.dev_dir)
         self.test_path = join(self.dataset_path, self.test_dir)
 
-        self.dev_file_inds = self.generate_file_inds(self.dev_path, options.seed)
+        self.dev_file_inds = self.generate_file_inds(self.dev_path,
+                                                     options.seed)
         self.test_file_inds = self.generate_file_inds(self.test_path, None)
 
         self.active_tags = options.active_tags
